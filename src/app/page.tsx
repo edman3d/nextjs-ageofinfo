@@ -14,8 +14,8 @@ export const revalidate = 3600;
 //  using revalidatePath or revalidateTag from next/cache.
 
 export default async function Home() {
-  // const civResponse = await fetch('http://localhost:3000/api/civs');
-  const civResponse = await fetch('/api/civs');
+  const civResponse = await fetch('http://localhost:3000/api/civs');
+  // const civResponse = await fetch('/api/civs');
   const civData: CivType[] = await civResponse.json();
   console.log(civData[0].army_type);
 
