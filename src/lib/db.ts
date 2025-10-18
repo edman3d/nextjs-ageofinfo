@@ -8,6 +8,7 @@ let cachedConnection: Connection | null = null;
 export async function connectToMongoDB() {
     console.log('NODE_ENV :>> ', env.NODE_ENV);
     console.log('env.MONGODB_URI :>> ', env.MONGODB_URI);
+    console.log('testing preview deploy on vercel');
     // If a cached connection exists, return it
     if (cachedConnection) {
         console.log("Using cached db connection");
