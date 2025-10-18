@@ -16,13 +16,14 @@ export const revalidate = 0;
 export default async function Home() {
   // const civResponse = await fetch('http://localhost:3000/api/civs');
   console.log('allowed db access from all IPs');
-  console.log('NEXT_PUBLIC_BASE_URL', process.env.NEXT_PUBLIC_BASE_URL);
+  console.log('NEXT_PUBLIC_BASE_URL', process.env.NEXT_PUBLIC_BASE_URL); // undefined in preview build
 
   console.log('VERCEL_ENV :>> ', process.env.VERCEL_ENV);
   console.log('VERCEL_URL :>> ', process.env.VERCEL_URL);
   console.log('VERCEL_BRANCH_URL :>> ', process.env.VERCEL_BRANCH_URL);
 
-  const civResponse = await fetch('/api/civs');
+  const civResponse = await fetch(`https://${process.env.VERCEL_URL}/api/civs`);
+  // const civResponse = await fetch('/api/civs');
   const civData: CivType[] = await civResponse.json();
   console.log(civData[0].army_type);
 
