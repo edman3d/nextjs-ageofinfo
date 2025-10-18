@@ -20,9 +20,10 @@ export default async function Home() {
 
   console.log('VERCEL_ENV :>> ', process.env.VERCEL_ENV);
   console.log('VERCEL_URL :>> ', process.env.VERCEL_URL);
+  console.log('VERCEL_PROJECT_PRODUCTION_URL :>> ', process.env.VERCEL_PROJECT_PRODUCTION_URL);
   console.log('VERCEL_BRANCH_URL :>> ', process.env.VERCEL_BRANCH_URL);
-
-  const civResponse = await fetch(`https://${process.env.VERCEL_URL}/api/civs`);
+  console.log('VERCEL_AUTOMATION_BYPASS_SECRET :>> ', process.env.VERCEL_AUTOMATION_BYPASS_SECRET);
+  const civResponse = await fetch(`https://${process.env.VERCEL_URL}/api/civs?x-vercel-protection-bypass=${process.env.VERCEL_AUTOMATION_BYPASS_SECRET}`);
   // const civResponse = await fetch('/api/civs');
   const civData: CivType[] = await civResponse.json();
   console.log(civData[0].army_type);
