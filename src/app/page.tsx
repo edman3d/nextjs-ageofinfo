@@ -15,7 +15,7 @@ export const revalidate = 0;
 
 export default async function Home() {
   // const civResponse = await fetch('http://localhost:3000/api/civs');
-  console.log('allowed db access from all IPs');
+  console.log('disable vercel authentication');
   console.log('NEXT_PUBLIC_BASE_URL', process.env.NEXT_PUBLIC_BASE_URL); // undefined in preview build
 
   console.log('VERCEL_ENV :>> ', process.env.VERCEL_ENV);
