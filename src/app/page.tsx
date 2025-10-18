@@ -15,6 +15,7 @@ export const revalidate = 0;
 
 export default async function Home() {
   // const civResponse = await fetch('http://localhost:3000/api/civs');
+  console.log('allowed db access from all IPs');
   const civResponse = await fetch('/api/civs');
   const civData: CivType[] = await civResponse.json();
   console.log(civData[0].army_type);
