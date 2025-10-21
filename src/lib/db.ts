@@ -6,12 +6,12 @@ let cachedConnection: Connection | null = null;
 
 // Function to establish a connection to MongoDB
 export async function connectToMongoDB() {
-    console.log('NODE_ENV :>> ', env.NODE_ENV);
-    console.log('env.MONGODB_URI :>> ', env.MONGODB_URI);
-    console.log('testing preview deploy on vercel');
+    // console.log('NODE_ENV :>> ', env.NODE_ENV);
+    // console.log('env.MONGODB_URI :>> ', env.MONGODB_URI);
+    // console.log('testing preview deploy on vercel');
     // If a cached connection exists, return it
     if (cachedConnection) {
-        console.log("Using cached db connection");
+        // console.log("Using cached db connection");
         return cachedConnection;
     }
     try {
@@ -20,7 +20,7 @@ export async function connectToMongoDB() {
         // Cache the connection for future use
         cachedConnection = cnx.connection;
         // Log message indicating a new MongoDB connection is established
-        console.log("New mongodb connection established");
+        // console.log("New mongodb connection established");
         // Return the newly established connection
         return cachedConnection;
     } catch (error) {
