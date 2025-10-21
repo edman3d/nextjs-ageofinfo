@@ -5,7 +5,7 @@ export async function fetchData(input: RequestInfo, init?: RequestInit) {
     } else {
         input = `http://${input}`
     }
-    console.log('input :>> ', input);
+    // console.log('input :>> ', input);
     const response = await fetch(input, init);
     if (response.ok) {
         return response;

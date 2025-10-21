@@ -15,13 +15,13 @@ export const revalidate = 0;
 
 export default async function Home() {
   // const civResponse = await fetch('http://localhost:3000/api/civs');
-  console.log('originmain testing');
-  console.log('NEXT_PUBLIC_BASE_URL', process.env.NEXT_PUBLIC_BASE_URL); // undefined in preview build
-  console.log('VERCEL_ENV :>> ', process.env.VERCEL_ENV);
-  console.log('VERCEL_URL :>> ', process.env.VERCEL_URL);
-  console.log('VERCEL_PROJECT_PRODUCTION_URL :>> ', process.env.VERCEL_PROJECT_PRODUCTION_URL);
-  console.log('VERCEL_BRANCH_URL :>> ', process.env.VERCEL_BRANCH_URL);
-  console.log('VERCEL_AUTOMATION_BYPASS_SECRET :>> ', process.env.VERCEL_AUTOMATION_BYPASS_SECRET);
+  // console.log('originmain testing');
+  // console.log('NEXT_PUBLIC_BASE_URL', process.env.NEXT_PUBLIC_BASE_URL); // undefined in preview build
+  // console.log('VERCEL_ENV :>> ', process.env.VERCEL_ENV);
+  // console.log('VERCEL_URL :>> ', process.env.VERCEL_URL);
+  // console.log('VERCEL_PROJECT_PRODUCTION_URL :>> ', process.env.VERCEL_PROJECT_PRODUCTION_URL);
+  // console.log('VERCEL_BRANCH_URL :>> ', process.env.VERCEL_BRANCH_URL);
+  // console.log('VERCEL_AUTOMATION_BYPASS_SECRET :>> ', process.env.VERCEL_AUTOMATION_BYPASS_SECRET);
 
   const civResponse = await fetchData(`${process.env.VERCEL_URL}/api/civs`);
   const civData: CivType[] = await civResponse.json();
