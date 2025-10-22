@@ -1,3 +1,5 @@
+'use server';
+
 export async function fetchData(input: RequestInfo, init?: RequestInit) {
     // Preview & Production deployments on Vercel require authentication for internal requests.
     if (process.env.NODE_ENV === 'production') {
