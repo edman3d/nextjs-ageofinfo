@@ -18,8 +18,9 @@ export default function CivsPage() {
                 setCivsLoading(true);
                 console.log(process.env.VERCEL_URL);
                 console.log(process.env.NEXT_PUBLIC_BASE_URL);
-                const civResponse = await fetchData(`/api/civs`);
-                const civData: CivType[] = await civResponse.json();
+                // const civResponse = await fetchData(`/api/civs`);
+                // const civData: CivType[] = await civResponse.json();
+                const civData: CivType[] = await fetchData(`/api/civs`);
                 setCivs(civData);
             } catch (error) {
                 console.error(error);
