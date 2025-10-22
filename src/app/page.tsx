@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+// import styles from "./page.module.css";
 import { HydratedDocument } from 'mongoose';
 import { CivType } from "@/models/Civ";
 import { fetchData } from "@/lib/fetchData";
@@ -24,11 +24,9 @@ export default async function Home() {
   // console.log('VERCEL_BRANCH_URL :>> ', process.env.VERCEL_BRANCH_URL);
   // console.log('VERCEL_AUTOMATION_BYPASS_SECRET :>> ', process.env.VERCEL_AUTOMATION_BYPASS_SECRET);
 
-  const civResponse = await fetchData(`${process.env.VERCEL_URL}/api/civs`);
-  const civData: CivType[] = await civResponse.json();
-  console.log(civData[0].army_type);
+
 
   return (
-    <div>yo</div>
+    <div>Home Page</div>
   );
 }
