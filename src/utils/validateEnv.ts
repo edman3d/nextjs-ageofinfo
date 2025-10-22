@@ -8,6 +8,10 @@ import { port, str } from "envalid/dist/validators";
 // } else {
 //     process.env.NEXT_PUBLIC_BASE_URL = process.env.VERCEL_URL;
 // }
+if (process.env.VERCEL_ENV === 'preview') {
+    console.log('preview build found, setting public base url to ' + process.env.VERCEL_URL);
+    process.env.NEXT_PUBLIC_BASE_URL = process.env.VERCEL_URL;
+}
 
 export default cleanEnv(process.env, {
     NODE_ENV: str({ choices: ['development', 'production'] }),
