@@ -18,15 +18,17 @@ import mongoose from "mongoose";
  */
 
 const civSchema = new mongoose.Schema({
-    name: { type: String, required: true, unique: true },
-    unique_unit: { type: String, required: true },
-    unique_tech: { type: String, required: true },
-    team_bonus: { type: String, required: true },
-    civilization_bonus: { type: String, required: true },
-    image: { type: String, required: true },
-    unique_buildings: { type: String },
-    expansion: { type: String, required: true },
-    army_type: { type: String, required: true },
+  _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
+  name: { type: String, required: true, unique: true },
+  unique_unit: { type: String, required: true },
+  unique_tech: { type: String, required: true },
+  team_bonus: { type: String, required: true },
+  civilization_bonus: { type: String, required: true },
+  image: { type: String, required: true },
+  unique_buildings: { type: String },
+  expansion: { type: String, required: true },
+  army_type: { type: String, required: true },
+  id: { type: String }
 }, { timestamps: true });
 
 export type CivType = mongoose.InferSchemaType<typeof civSchema>;
