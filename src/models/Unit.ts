@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+// disable no-explicit-any for this file
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const unitSchema = new mongoose.Schema({
     name: { type: String, required: true },
     id: { type: String, required: true, unique: true },
