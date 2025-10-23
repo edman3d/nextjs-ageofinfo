@@ -7,7 +7,7 @@ import { Metadata } from "next";
  */
 
 interface PageProps {
-  params: { civ: string }, // unit refers to the units/[unit] dynamic route
+  params: { civ: string }, // unit refers to the civs/[civ] dynamic route
 }
 
 export const revalidate = 0; // Must be 0 here because we are fetching from our own internal API during build time
@@ -25,7 +25,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div>
-      <p>Single Unit Page</p>
+      <p>Single Civ Page</p>
       <p>Dynamic Slug: {civ}</p>
 
       {civData ? <p>{civData.name}</p> : <p>Civ not found (we don't reach this because server returns 404 if name is wrong)</p>}
