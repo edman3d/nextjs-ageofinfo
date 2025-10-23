@@ -3,7 +3,9 @@
 export async function fetchData(input: RequestInfo, init?: RequestInit) {
     // Preview & Production deployments on Vercel require authentication for internal requests.
     if (process.env.NODE_ENV === 'production') {
-        input = `${process.env.SITE_BASE_URL}${input}?x-vercel-protection-bypass=${process.env.VERCEL_AUTOMATION_BYPASS_SECRET}`
+        const base = `${process.env.SITE_BASE_URL}${input}`;
+        const sep = base.includes('?') ? '&' : '?';
+        input = `${base}${sep}x-vercel-protection-bypass=${process.env.VERCEL_AUTOMATION_BYPASS_SECRET}`;
     } else {
         input = `${process.env.SITE_BASE_URL}${input}`
     }
