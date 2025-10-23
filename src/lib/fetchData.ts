@@ -1,4 +1,4 @@
-'use server';
+'use server'; // Must use server to access environment variables like VERCEL_AUTOMATION_BYPASS_SECRET
 
 export async function fetchData(input: RequestInfo, init?: RequestInit) {
     // Preview & Production deployments on Vercel require authentication for internal requests.
@@ -11,7 +11,7 @@ export async function fetchData(input: RequestInfo, init?: RequestInit) {
     const response = await fetch(input, init);
     if (response.ok) {
         // return response;
-        return response.json(); // Need .json() when passing to client components
+        return response.json(); // Need response.json() instead oof response when passing to client components
     } else {
         const errorBody = await response.json();
         const errorMessage = errorBody.error;

@@ -6,7 +6,7 @@ import { fetchData } from "@/lib/fetchData";
 import CivsPage from "./CivsPage";
 
 export const metadata = {
-  title: "Age of Info | Civs Page",
+  title: "Civs | Age of Info",
 }
 
 export const revalidate = 0; // Must be 0 here because we are fetching from our own internal API
