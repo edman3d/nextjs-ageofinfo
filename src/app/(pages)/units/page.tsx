@@ -5,7 +5,7 @@ import { CivType } from "@/models/Civ";
 import { fetchData } from "@/lib/fetchData";
 
 export const metadata = {
-  title: "Age of Info | Units Page",
+  title: "Units | Age of Info",
 }
 
 export const revalidate = 0; // Must be 0 here because we are fetching from our own internal API
