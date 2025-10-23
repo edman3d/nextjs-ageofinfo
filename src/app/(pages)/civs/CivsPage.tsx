@@ -2,22 +2,19 @@
 
 import { fetchData } from "@/lib/fetchData";
 import { CivType } from "@/models/Civ";
-import { FormEvent, useEffect, useState } from "react";
-import { Alert, Button, Col, Form, Row, Spinner } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Row, Spinner } from "react-bootstrap";
 
 export default function CivsPage() {
     const [civs, setCivs] = useState<CivType[] | null>(null);
     const [civsLoading, setCivsLoading] = useState(false);
     const [civsLoadingError, setCivsLoadingError] = useState(false);
 
-    // useEffect function
     useEffect(() => {
         async function loadCivs() {
             try {
                 setCivsLoadingError(false);
                 setCivsLoading(true);
-                // const civResponse = await fetchData(`/api/civs`);
-                // const civData: CivType[] = await civResponse.json();
                 const civData: CivType[] = await fetchData(`/api/civs`);
                 setCivs(civData);
             } catch (error) {

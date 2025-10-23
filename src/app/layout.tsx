@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { connectToMongoDB } from "@/lib/db";
-import { Container, SSRProvider } from '@/components/bootstrap';
+import { Container } from '@/components/bootstrap';
 import NavBar from "@/components/NavBar";
 
 const geistSans = Geist({

@@ -1,14 +1,10 @@
 import { fetchData } from "@/lib/fetchData";
 import { CivType } from "@/models/Civ";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 /**
  * Server-side rendered page for displaying a single Civilization based on the dynamic route parameter.
  */
-
-// interface PageProps {
-//   params: { civ: string }, // unit refers to the civs/[civ] dynamic route
-// }
 
 interface PageProps {
   params: Promise<{ civ: string }>, // unit refers to the civs/[civ] dynamic route
