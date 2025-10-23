@@ -7,7 +7,7 @@ import { Metadata } from "next";
  */
 
 interface PageProps {
-  params: { unit: string }, // unit refers to the units/[unit] dynamic route
+  params: Promise<{ unit: string }>, // unit refers to the units/[unit] dynamic route
 }
 
 export const revalidate = 0; // Must be 0 here because we are fetching from our own internal API during build time

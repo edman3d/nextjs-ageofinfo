@@ -1,13 +1,17 @@
 import { fetchData } from "@/lib/fetchData";
 import { CivType } from "@/models/Civ";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 
 /**
  * Server-side rendered page for displaying a single Civilization based on the dynamic route parameter.
  */
 
+// interface PageProps {
+//   params: { civ: string }, // unit refers to the civs/[civ] dynamic route
+// }
+
 interface PageProps {
-  params: { civ: string }, // unit refers to the civs/[civ] dynamic route
+  params: Promise<{ civ: string }>, // unit refers to the civs/[civ] dynamic route
 }
 
 export const revalidate = 0; // Must be 0 here because we are fetching from our own internal API during build time
