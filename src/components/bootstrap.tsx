@@ -5,4 +5,4 @@
  * This file forces the Bootstrap components to be treated as client components.
  */
 
-export { Container, SSRProvider, Alert, Spinner } from "react-bootstrap";
+export { Container, Alert, Spinner } from "react-bootstrap";
