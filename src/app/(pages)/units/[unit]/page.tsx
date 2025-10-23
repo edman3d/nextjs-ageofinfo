@@ -28,7 +28,7 @@ export default async function Page({ params }: PageProps) {
       <p>Single Unit Page</p>
       <p>Dynamic Slug: {unit}</p>
 
-      {unitData ? <p>{unitData.name}</p> : <p>Unit not found (we don't reach this because server returns 404 if name is wrong)</p>}
+      {unitData ? <p>{unitData.name}</p> : <p>Unit not found (we dont reach this because server returns 404 if name is wrong)</p>}
 
     </div>
   );

@@ -28,7 +28,7 @@ export default async function Page({ params }: PageProps) {
       <p>Single Civ Page</p>
       <p>Dynamic Slug: {civ}</p>
 
-      {civData ? <p>{civData.name}</p> : <p>Civ not found (we don't reach this because server returns 404 if name is wrong)</p>}
+      {civData ? <p>{civData.name}</p> : <p>Civ not found (we dont reach this because server returns 404 if name is wrong)</p>}
 
     </div>
   );
