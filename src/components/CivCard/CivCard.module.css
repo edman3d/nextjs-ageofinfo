@@ -1,0 +1,8 @@
+.hoverStyles {
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.hoverStyles:hover {
+    border-color: white !important;
+}
