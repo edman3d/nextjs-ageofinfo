@@ -1,6 +1,7 @@
 import { Card } from '@/components/bootstrap';
 import { CivType } from '@/models/Civ';
 import styles from "./CivCard.module.css"
+import Link from "next/link";
 
 interface CivCardProps {
     civ: CivType;
@@ -11,18 +12,15 @@ const CivCard = ({ civ }: CivCardProps) => {
         civilization_bonus, expansion, army_type, } = civ;
 
     return (
-        <Card bg="dark" text="light" border="secondary" className={`${styles.hoverStyles} user-select-none`}>
+        <Card as={Link} bg="dark" text="light" border="secondary" href={`/civs/${name}`} className={`${styles.hoverStyles} user-select-none h-100 text-decoration-none`}>
             <Card.Header as="h5">
                 {name}
             </Card.Header>
             <Card.Subtitle className='mx-3 text-white-50'>{army_type}</Card.Subtitle>
             <Card.Body className='p-3'>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
+                    {team_bonus}
                 </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
             </Card.Body>
         </Card>
     );

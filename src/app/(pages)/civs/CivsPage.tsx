@@ -5,6 +5,7 @@ import { CivType } from "@/models/Civ";
 import { useEffect, useState } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
 import CivCard from "@/components/CivCard/CivCard";
+import Link from "next/link";
 
 export default function CivsPage() {
     const [civs, setCivs] = useState<CivType[] | null>(null);
@@ -29,11 +30,10 @@ export default function CivsPage() {
     }, []);
 
     const civsGrid =
-        <Row xs={1} md={2} xl={3} className={`g-4`}>
+        <Row xs={1} md={3} xl={4} className={`g-2`}>
             {civs?.map(civ => (
                 <Col key={civ.id}>
                     <CivCard civ={civ} />
-                    {/* <div>{civ.name} | {civ.army_type}</div> */}
                 </Col>
             ))}
         </Row>
