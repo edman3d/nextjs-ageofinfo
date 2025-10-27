@@ -25,7 +25,14 @@ export default async function Page({ params }: PageProps) {
 
   const { unique_unit } = civData;
 
+  const uniqueUnitNames: string[] = unique_unit.split(';');
+
   return (
-    <UnitCard unitName={unique_unit} />
+    <>
+      {uniqueUnitNames?.map(name => (
+        <UnitCard unitName={name} key={name} />
+      ))}
+    </>
+
   );
 }
