@@ -1,4 +1,4 @@
-import { Card } from '@/components/bootstrap';
+import Card from 'react-bootstrap/Card';
 import { CivType } from '@/models/Civ';
 import styles from "./CivCard.module.css"
 import Link from "next/link";
