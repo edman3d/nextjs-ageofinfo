@@ -1,10 +1,8 @@
 "use client";
-// import Card from 'react-bootstrap/Card';
-import { Card, Spinner } from "react-bootstrap";
-import { UnitType } from '@/models/Unit';
-import Link from "next/link";
 import { fetchData } from "@/lib/fetchData";
+import { UnitType } from '@/models/Unit';
 import { useEffect, useState } from "react";
+import { Card, Spinner } from "react-bootstrap";
 
 interface UnitCardProps {
     unitName: string;
@@ -21,7 +19,6 @@ const UnitCard = ({ unitName }: UnitCardProps) => {
             try {
                 setUnitLoadingError(false);
                 setUnitLoading(true);
-                // const unitData: UnitType = await fetchData(`/api/units?name${unitName}`);
                 const unitData: UnitType = await fetchData(`/api/units?name=${unitName}`);
                 setUnit(unitData);
             } catch (error) {
@@ -40,33 +37,19 @@ const UnitCard = ({ unitName }: UnitCardProps) => {
             {unitLoadingError && <p>Couldn't find unit called {unitName}. Please refresh the page.</p>}
             {!unitLoading && !unitLoadingError && unit &&
                 <Card bg="dark" text="light" border="secondary" className={`user-select-none h-100`}>
-                    <Card.Header as="h5">
-                        Name: {unit.name}
+                    <Card.Header as="h5" >
+                        {unit.name}
                     </Card.Header>
-                    <Card.Subtitle className='mx-3 text-white-50'>Subtitle</Card.Subtitle>
+                    <Card.Subtitle className='mx-3 text-white-50'>{unit.type}</Card.Subtitle>
                     <Card.Body className='p-3'>
                         <Card.Text>
-                            Text
+                            {unit.description}
                         </Card.Text>
                     </Card.Body>
                 </Card>
             }
         </>
     );
-
-    // return (
-    // <Card bg="dark" text="light" border="secondary" className={`user-select-none h-100`}>
-    //     <Card.Header as="h5">
-    //         {unitName}
-    //     </Card.Header>
-    //     <Card.Subtitle className='mx-3 text-white-50'>unit</Card.Subtitle>
-    //     <Card.Body className='p-3'>
-    //         <Card.Text>
-    //             unit
-    //         </Card.Text>
-    //     </Card.Body>
-    // </Card>
-    // );
 }
 
 export default UnitCard;
