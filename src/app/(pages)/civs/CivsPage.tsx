@@ -32,7 +32,7 @@ export default function CivsPage() {
     const civsGrid =
         <Row xs={1} md={3} xl={4} className={`g-2`}>
             {civs?.map(civ => (
-                <Col key={civ.id}>
+                <Col key={civ._id?.toString()}>
                     <CivCard civ={civ} />
                 </Col>
             ))}

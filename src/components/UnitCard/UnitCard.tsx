@@ -14,6 +14,11 @@ const UnitCard = ({ unitName }: UnitCardProps) => {
     const [unitLoading, setUnitLoading] = useState(false);
     const [unitLoadingError, setUnitLoadingError] = useState(false);
 
+    const getIconSrc = (u: UnitType | null) => {
+        if (!u) return '/icons/units/default.png';
+        return `/icons/units/${u.image}.png`;
+    };
+
     useEffect(() => {
         async function loadUnit() {
             try {
@@ -38,7 +43,17 @@ const UnitCard = ({ unitName }: UnitCardProps) => {
             {!unitLoading && !unitLoadingError && unit &&
                 <Card bg="dark" text="light" border="secondary" className={`user-select-none h-100`}>
                     <Card.Header as="h5" >
-                        {unit.name}
+                        <div className="d-flex align-items-center">
+                            <img
+                                src={getIconSrc(unit)}
+                                alt={`${unit.name} icon`}
+                                width={48}
+                                height={48}
+                                className="me-2 rounded"
+                                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/icons/units/default.png'; }}
+                            />
+                            <span>{unit.name}</span>
+                        </div>
                     </Card.Header>
                     <Card.Subtitle className='mx-3 text-white-50'>{unit.type}</Card.Subtitle>
                     <Card.Body className='p-3'>
