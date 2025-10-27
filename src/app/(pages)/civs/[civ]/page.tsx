@@ -1,7 +1,7 @@
 import { fetchData } from "@/lib/fetchData";
 import { CivType } from "@/models/Civ";
 import { Metadata } from "next";
-
+import UnitCard from "@/components/UnitCard/UnitCard";
 /**
  * Server-side rendered page for displaying a single Civilization based on the dynamic route parameter.
  */
@@ -23,13 +23,9 @@ export default async function Page({ params }: PageProps) {
   const { civ } = await params; // https://nextjs.org/docs/messages/sync-dynamic-apis
   const civData: CivType = await fetchData(`/api/civs?name=${civ}`);
 
+  const { unique_unit } = civData;
+
   return (
-    <div>
-      <p>Single Civ Page</p>
-      <p>Dynamic Slug: {civ}</p>
-
-      {civData ? <p>{civData.name}</p> : <p>Civ not found (we dont reach this because server returns 404 if name is wrong)</p>}
-
-    </div>
+    <UnitCard unitName={unique_unit} />
   );
 }
