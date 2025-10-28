@@ -7,6 +7,7 @@ import { Col, Row, Spinner } from "react-bootstrap";
 import CivCard from "@/components/CivCard/CivCard";
 import Link from "next/link";
 import UnitCard from "@/components/UnitCard/UnitCard";
+import LazyUnitCard from "@/components/UnitCard/LazyUnitCard";
 
 export default function UnitsPage() {
     const [units, setUnits] = useState<UnitType[] | null>(null);
@@ -34,7 +35,8 @@ export default function UnitsPage() {
         <Row xs={1} md={3} xl={4} className={`g-2`}>
             {units?.map(unit => (
                 <Col key={unit._id?.toString()}>
-                    <UnitCard unitData={unit} />
+                    {/* <UnitCard unitData={unit} /> */}
+                    <LazyUnitCard unit={unit} />
                 </Col>
             ))}
         </Row>

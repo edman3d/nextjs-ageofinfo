@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { fetchData } from "@/lib/fetchData";
 import { UnitType } from '@/models/Unit';
 import { useEffect, useState } from "react";
@@ -19,6 +20,12 @@ const UnitCard = ({ unitData, unitName }: UnitCardProps) => {
         if (!u) return '/icons/units/default.png';
         return `/icons/units/${u.image}.png`;
     };
+
+    const [iconSrc, setIconSrc] = useState<string>(() => getIconSrc(unit));
+
+    useEffect(() => {
+        setIconSrc(getIconSrc(unit));
+    }, [unit]);
 
     useEffect(() => {
         async function loadUnit() {
@@ -43,18 +50,26 @@ const UnitCard = ({ unitData, unitName }: UnitCardProps) => {
     return (
         <>
             {unitLoading && <Spinner animation='border' variant='primary' />}
-            {unitLoadingError && <p>Couldn't find unit called {unitName}. Please refresh the page.</p>}
+            {unitLoadingError && <p>Couldnt find unit called {unitName}. Please refresh the page.</p>}
             {!unitLoading && !unitLoadingError && unit &&
                 <Card bg="dark" text="light" border="secondary" className={`user-select-none h-100`}>
                     <Card.Header as="h5" >
                         <div className="d-flex align-items-center">
-                            <img
+                            {/* <img
                                 src={getIconSrc(unit)}
                                 alt={`${unit.name} icon`}
                                 width={48}
                                 height={48}
                                 className="me-2 rounded"
                                 onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/icons/units/default.png'; }}
+                            /> */}
+                            <Image
+                                src={iconSrc}
+                                alt={`${unit.name} icon`}
+                                width={48}
+                                height={48}
+                                className="me-2 rounded"
+                                onError={() => setIconSrc('/icons/units/default.png')}
                             />
                             <span>{unit.name}</span>
                         </div>
