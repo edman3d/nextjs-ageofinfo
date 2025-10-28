@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 // disable no-explicit-any for this file
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const unitSchema = new mongoose.Schema({
+    _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
     name: { type: String, required: true },
-    id: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     expansion: { type: String, required: true },
     age: {
@@ -51,6 +51,7 @@ const unitSchema = new mongoose.Schema({
     },
     armor_class: { type: String, required: true },
     special: { type: String },
+    id: { type: String, required: true, unique: true },
 }, { timestamps: true });
 
 export type UnitType = mongoose.InferSchemaType<typeof unitSchema>;

@@ -5,12 +5,13 @@ import { useEffect, useState } from "react";
 import { Card, Spinner } from "react-bootstrap";
 
 interface UnitCardProps {
-    unitName: string;
+    unitData?: UnitType; // Pass in data to avoid fetching again
+    unitName?: string;
 }
 
-const UnitCard = ({ unitName }: UnitCardProps) => {
+const UnitCard = ({ unitData, unitName }: UnitCardProps) => {
 
-    const [unit, setUnit] = useState<UnitType | null>(null);
+    const [unit, setUnit] = useState<UnitType | null>(unitData || null);
     const [unitLoading, setUnitLoading] = useState(false);
     const [unitLoadingError, setUnitLoadingError] = useState(false);
 
@@ -33,7 +34,10 @@ const UnitCard = ({ unitName }: UnitCardProps) => {
                 setUnitLoading(false);
             }
         }
-        loadUnit();
+        if (!unitData) {
+            loadUnit();
+        }
+
     }, []);
 
     return (
