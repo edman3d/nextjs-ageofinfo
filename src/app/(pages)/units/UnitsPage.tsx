@@ -1,13 +1,10 @@
 "use client";
 
+import LazyUnitCard from "@/components/UnitCard/LazyUnitCard";
 import { fetchData } from "@/lib/fetchData";
 import { UnitType } from "@/models/Unit";
 import { useEffect, useState } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
-import CivCard from "@/components/CivCard/CivCard";
-import Link from "next/link";
-import UnitCard from "@/components/UnitCard/UnitCard";
-import LazyUnitCard from "@/components/UnitCard/LazyUnitCard";
 
 export default function UnitsPage() {
     const [units, setUnits] = useState<UnitType[] | null>(null);

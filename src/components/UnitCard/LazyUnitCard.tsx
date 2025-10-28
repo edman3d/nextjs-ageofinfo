@@ -1,6 +1,6 @@
 import { UnitType } from "@/models/Unit";
 import dynamic from "next/dynamic";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const DynamicUnitCard = dynamic(
     () => import("@/components/UnitCard/UnitCard"),
@@ -31,7 +31,7 @@ export default function LazyUnitCard({ unit }: { unit: UnitType }) {
     }, [visible]);
 
     return (
-        <div ref={ref}>
+        <div className="h-100" ref={ref}>
             {visible ? <DynamicUnitCard unitData={unit} /> : <div style={{ height: 120 }} />}
         </div>
     );

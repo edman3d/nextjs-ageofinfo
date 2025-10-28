@@ -1,11 +1,10 @@
 "use client";
 
+import CivCard from "@/components/CivCard/CivCard";
 import { fetchData } from "@/lib/fetchData";
 import { CivType } from "@/models/Civ";
 import { useEffect, useState } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
-import CivCard from "@/components/CivCard/CivCard";
-import Link from "next/link";
 
 export default function CivsPage() {
     const [civs, setCivs] = useState<CivType[] | null>(null);
