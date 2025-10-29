@@ -23,7 +23,6 @@ export async function GET(request: Request) {
         try {
             const unit: UnitType | null = await Unit.findOne({ name: name });
             if (unit) {
-                console.log(unit.cost);
                 return NextResponse.json(unit);
             } else {
                 return NextResponse.json({ error: `Unit not found with name ${name}` }, { status: 404 });
