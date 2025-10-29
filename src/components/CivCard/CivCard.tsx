@@ -12,7 +12,15 @@ const CivCard = ({ civ }: CivCardProps) => {
         civilization_bonus, expansion, army_type, } = civ;
 
     return (
-        <Card as={Link} bg="dark" text="light" border="secondary" href={`/civs/${name}`} className={`${styles.hoverStyles} user-select-none h-100 text-decoration-none`}>
+        <Card
+            as={Link}
+            bg="dark"
+            text="light"
+            border="secondary"
+            href={`/civs/${name}`}
+            prefetch={false}
+            className={`${styles.hoverStyles} user-select-none h-100 text-decoration-none`}
+        >
             <Card.Header as="h5">
                 {name}
             </Card.Header>
