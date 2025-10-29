@@ -1,6 +1,7 @@
 'use server'; // Must use server to access environment variables like VERCEL_AUTOMATION_BYPASS_SECRET
 
 export async function fetchData(input: RequestInfo, init?: RequestInit) {
+    console.log('input: ', input);
     // Preview & Production deployments on Vercel require authentication for internal requests.
     if (process.env.NODE_ENV === 'production') {
         const base = `${process.env.SITE_BASE_URL}${input}`;
@@ -9,7 +10,7 @@ export async function fetchData(input: RequestInfo, init?: RequestInit) {
     } else {
         input = `${process.env.SITE_BASE_URL}${input}`
     }
-    console.log('input :>> ', input);
+
     const response = await fetch(input, init);
     if (response.ok) {
         // return response;
