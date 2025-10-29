@@ -1,7 +1,7 @@
 import { fetchData } from "@/lib/fetchData";
 import { UnitType } from "@/models/Unit";
 import { Metadata } from "next";
-
+import UnitCard from "@/components/UnitCard/UnitCard";
 /**
  * Server-side rendered page for displaying a single Unit based on the dynamic route parameter.
  */
@@ -24,12 +24,6 @@ export default async function Page({ params }: PageProps) {
   const unitData: UnitType = await fetchData(`/api/units?name=${unit}`);
 
   return (
-    <div>
-      <p>Single Unit Page</p>
-      <p>Dynamic Slug: {unit}</p>
-
-      {unitData ? <p>{unitData.name}</p> : <p>Unit not found (we dont reach this because server returns 404 if name is wrong)</p>}
-
-    </div>
+    <UnitCard unitData={unitData} key={unitData._id?.toString()} />
   );
 }
