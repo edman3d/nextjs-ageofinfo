@@ -2,8 +2,10 @@ import { fetchData } from "@/lib/fetchData";
 import { CivType } from "@/models/Civ";
 import { Metadata } from "next";
 import UnitCard from "@/components/UnitCard/UnitCard";
+
 /**
  * Server-side rendered page for displaying a single Civilization based on the dynamic route parameter.
+ * e.g. /civs/Franks. <UnitCard> is a client component
  */
 
 interface PageProps {
