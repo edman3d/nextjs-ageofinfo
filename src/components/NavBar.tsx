@@ -8,7 +8,7 @@ export default function NavBar() {
     const pathname = usePathname();
 
     return (
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar bg="dark" data-bs-theme="dark" sticky="top">
             <Container>
                 <Navbar.Brand as={Link} href="/">
                     NextJS AoE2 Navbar

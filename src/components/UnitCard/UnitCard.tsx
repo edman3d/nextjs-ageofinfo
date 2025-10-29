@@ -2,8 +2,10 @@
 import Image from "next/image";
 import { fetchData } from "@/lib/fetchData";
 import { UnitType } from '@/models/Unit';
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Card, Spinner } from "react-bootstrap";
+import styles from "./UnitCard.module.css";
 
 interface UnitCardProps {
     unitData?: UnitType; // Pass in data to avoid fetching again
@@ -52,17 +54,17 @@ const UnitCard = ({ unitData, unitName }: UnitCardProps) => {
             {unitLoading && <Spinner animation='border' variant='primary' />}
             {unitLoadingError && <p>Couldnt find unit called {unitName}. Please refresh the page.</p>}
             {!unitLoading && !unitLoadingError && unit &&
-                <Card bg="dark" text="light" border="secondary" className={`user-select-none h-100`}>
+                <Card
+                    as={Link}
+                    bg="dark"
+                    text="light"
+                    border="secondary"
+                    href={`/units/${unit.name}`}
+                    prefetch={false}
+                    className={`${styles.hoverStyles} user-select-none h-100 text-decoration-none`}
+                >
                     <Card.Header as="h5" >
                         <div className="d-flex align-items-center">
-                            {/* <img
-                                src={getIconSrc(unit)}
-                                alt={`${unit.name} icon`}
-                                width={48}
-                                height={48}
-                                className="me-2 rounded"
-                                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/icons/units/default.png'; }}
-                            /> */}
                             <Image
                                 src={iconSrc}
                                 alt={`${unit.name} icon`}
