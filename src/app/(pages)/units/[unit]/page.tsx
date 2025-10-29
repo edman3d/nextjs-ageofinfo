@@ -2,8 +2,10 @@ import { fetchData } from "@/lib/fetchData";
 import { UnitType } from "@/models/Unit";
 import { Metadata } from "next";
 import UnitCard from "@/components/UnitCard/UnitCard";
+
 /**
  * Server-side rendered page for displaying a single Unit based on the dynamic route parameter.
+ * e.g. /units/Archer. <UnitCard> is a client component
  */
 
 interface PageProps {
