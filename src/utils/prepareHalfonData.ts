@@ -6,7 +6,7 @@ const TYPE_MOVING = 30;
 const TYPE_PROJECTILE = 60;
 const TYPE_EYE_CANDY = 10;
 const TYPE_ANIMATED = 20;
-const EXCLUDE_TYPES = new Set([TYPE_BUILDING, TYPE_MOVING, TYPE_PROJECTILE, TYPE_EYE_CANDY]);
+const EXCLUDE_TYPES = new Set([TYPE_BUILDING, TYPE_MOVING, TYPE_PROJECTILE, TYPE_EYE_CANDY, TYPE_ANIMATED]);
 
 /**
  * Read `data/units_buildings_techs.de.json`, convert `units_buildings` and `techs`
@@ -32,12 +32,14 @@ async function prepareHalfonData(): Promise<{ unitsPath: string; techsPath: stri
     const techsObj = parsed?.techs ?? {};
 
     const unitsArr = Array.isArray(unitsObj) ? unitsObj : Object.values(unitsObj);
+    // filter out unwanted types
+    const unitsFiltered = unitsArr.filter((u: any) => !EXCLUDE_TYPES.has(Number(u?.type)));
     const techsArr = Array.isArray(techsObj) ? techsObj : Object.values(techsObj);
 
     const unitsPath = path.join(dataDir, 'units_buildings.de.json');
     const techsPath = path.join(dataDir, 'techs.de.json');
 
-    await fs.writeFile(unitsPath, JSON.stringify(unitsArr, null, 2), 'utf8');
+    await fs.writeFile(unitsPath, JSON.stringify(unitsFiltered, null, 2), 'utf8');
     await fs.writeFile(techsPath, JSON.stringify(techsArr, null, 2), 'utf8');
 
     return { unitsPath, techsPath };
