@@ -36,7 +36,7 @@ async function prepareHalfonData(): Promise<{ unitsPath: string; techsPath: stri
     const unitsFiltered = unitsArr.filter((u: any) => !EXCLUDE_TYPES.has(Number(u?.type)));
     const techsArr = Array.isArray(techsObj) ? techsObj : Object.values(techsObj);
 
-    const unitsPath = path.join(dataDir, 'units_buildings.de.json');
+    const unitsPath = path.join(dataDir, 'units.de.json');
     const techsPath = path.join(dataDir, 'techs.de.json');
 
     await fs.writeFile(unitsPath, JSON.stringify(unitsFiltered, null, 2), 'utf8');
