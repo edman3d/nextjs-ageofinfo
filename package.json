@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "halfon": "npx ts-node src/utils/downloadHalfonData.ts"
+    "halfon": "npx ts-node src/utils/downloadHalfonData.ts",
+    "prephalfon": "npx ts-node src/utils/prepareHalfonData.ts"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
