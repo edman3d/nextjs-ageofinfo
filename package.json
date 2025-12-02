@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "halfon": "npx ts-node src/utils/downloadHalfonData.ts"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
