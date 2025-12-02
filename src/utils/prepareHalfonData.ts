@@ -1,6 +1,13 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
+const TYPE_BUILDING = 80;
+const TYPE_MOVING = 30;
+const TYPE_PROJECTILE = 60;
+const TYPE_EYE_CANDY = 10;
+const TYPE_ANIMATED = 20;
+const EXCLUDE_TYPES = new Set([TYPE_BUILDING, TYPE_MOVING, TYPE_PROJECTILE, TYPE_EYE_CANDY]);
+
 /**
  * Read `data/units_buildings_techs.de.json`, convert `units_buildings` and `techs`
  * from objects into arrays and write each array to its own file in `data/`.
