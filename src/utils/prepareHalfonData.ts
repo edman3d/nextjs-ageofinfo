@@ -8,6 +8,10 @@ const TYPE_EYE_CANDY = 10;
 const TYPE_ANIMATED = 20;
 const EXCLUDE_TYPES = new Set([TYPE_BUILDING, TYPE_MOVING, TYPE_PROJECTILE, TYPE_EYE_CANDY, TYPE_ANIMATED]);
 
+const CLASS_LIVESTOCK = 58;
+const CLASS_PREDATOR_ANIMAL = 10;
+// TODO: filter out above classes maybe?
+
 /**
  * Read `data/units_buildings_techs.de.json`, convert `units_buildings` and `techs`
  * from objects into arrays and write each array to its own file in `data/`.
